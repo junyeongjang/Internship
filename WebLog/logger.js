@@ -3,16 +3,17 @@ const { createLogger, format, transports } = require('winston');
 const winstonDaily = require('winston-daily-rotate-file');
 const { combine, timestamp, printf } = format;
 
-const customFormat = printf(info => {
-    return `${info.timestamp} ${info.level}: ${info.message}`;
-});
+// const customFormat = printf(info => {
+//     return `${info.timestamp}, ${info.message}`;
+// });
 
 const logger = winston.createLogger({
     format: combine(
-        timestamp({
-            format: 'YYYY-MM-DD HH:mm:ss',
-        }),
-        customFormat
+        winston.format.json()
+        // timestamp({
+        //     format: 'YYYY-MM-DD HH:mm:ss',
+        // }),
+        // customFormat
     ),
     transports: [
         new winston.transports.Console(),
@@ -20,9 +21,9 @@ const logger = winston.createLogger({
             level: 'info',
             datePattern: 'YYYYMMDD',
             dirname: './logs',
-            filename: `appName_%DATE%.log`,
+            filename: `WebLog_%DATE%.log`,
             maxSize: null,
-            maxFiles: 14
+            maxFiles: 14  //14개 저장-> 즉, 14일 
         }),
     ],
 });
