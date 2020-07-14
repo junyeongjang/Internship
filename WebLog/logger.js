@@ -4,7 +4,7 @@ const winstonDaily = require('winston-daily-rotate-file');
 const { combine, timestamp, printf } = format;
 
 // const customFormat = printf(info => {
-//     return `${info.timestamp}, ${info.message}`;
+//     return `${ifo.timestamp}, ${info.message}`;
 // });
 
 const logger = winston.createLogger({
@@ -28,10 +28,10 @@ const logger = winston.createLogger({
     ],
 });
 
-const stream = {
+logger.stream = {
     write: message => {
       logger.info(message);
     }
 };
 
-module.exports = {logger, stream};
+module.exports = logger;
