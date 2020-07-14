@@ -18,7 +18,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(logger('combined', {stream})); //더 자세한 정보를 출력하기 위해 
+app.use(logger('combined', {stream: logger.stream})); //더 자세한 정보를 출력하기 위해 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
