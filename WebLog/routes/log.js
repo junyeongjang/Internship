@@ -3,6 +3,7 @@ const fs = require('fs');
 const router = express.Router();
 /* GET users listing. */
 
+//아직 에러처리 없음
 
 function SplitDate(DateArray){//날짜 데이터 추출
     const Date = DateArray.replace('[','');
@@ -43,11 +44,13 @@ async function toJSON(fileName){
     const ObjectArray = await SplitLogic(dataSplit, dataSplit.length);
     writeFile(ObjectArray, './json/myFile.json');
 }
- 
+
+
 router.get('/', function(req, res, next) {
     //const data = fs.readFileSync('./logs/WebLog_20200713.log','utf-8'); //data 타입은 string
-    toJSON('./logs/WebLog_20200713.log');
+    toJSON('./logs/WebLog_20200713.log'); // log 파일을 입력하면 -> json으로 변경
     res.render('item',{ item_name: "hi" });
 });
+
 
 module.exports = router;
