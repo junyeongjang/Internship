@@ -6,7 +6,9 @@ router.get('/', function(req, res, next) {
     const _url = req.url;
     const queryData = url.parse(_url,true).query;
     const inputData = queryData.item;
-    console.log(inputData);
+    //console.log(req.headers);
+    console.log(req.url);
+    //console.log(inputData);
     res.render("item" ,{item_name: inputData});
 });
 

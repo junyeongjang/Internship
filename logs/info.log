@@ -1,0 +1,2 @@
+{"message":"::1 - - [14/Jul/2020:01:21:37 +0000] \"GET / HTTP/1.1\" 200 170 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36\"\n","level":"info"}
+{"message":"::1 - - [14/Jul/2020:01:21:41 +0000] \"GET /api/item HTTP/1.1\" 304 - \"http://localhost:3000/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36\"\n","level":"info"}
