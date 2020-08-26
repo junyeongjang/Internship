@@ -1,9 +1,21 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const axios = require('axios');
+const router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+
+router.get('/', function(req, res, next){
+	
+	console.log(req);	
+	axios({
+ 		 method: 'get',
+ 		 url: 'http://localhost:5000',
+  	     data: {
+    		request: req.headers,
+			url : req.baseUrl,
+ 		 }
+	});
+	res.send("hi");	
 });
+
 
 module.exports = router;
